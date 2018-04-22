@@ -1,0 +1,10 @@
+#video_box{
+    border:1px solid black;
+}
+
+#facecam{
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+    border: 1px solid black;
+}

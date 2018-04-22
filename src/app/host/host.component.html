@@ -1,0 +1,87 @@
+<div class="card main">
+<div class="row screens">
+  <div class="col-md-6">
+    <h3>Screen/window</h3>
+    <video id="screen" width="480" height="320" autoplay></video>
+  </div>
+  <div class="col-md-6">
+    <h3>Camera</h3>
+    <video id="camera" width="480" height="320" autoplay></video>
+  </div>
+</div>
+
+<div class="row configuration">
+<div class="col-md-12">
+<div class="row">
+  <div class="col-md-6">
+      <div class="row">
+          <div class="col-md-6">
+              <button type="button" (click) = shareScreen() class="btn btn-warning">add</button>
+              <select class="form-control input-small" [(ngModel)]="selectedSource">
+                <option *ngFor="let source of sources; let i = index" value="{{source.value}}">{{source.label}}</option>
+              </select>
+          </div>
+          <div class="col-md-6 checkbox-container">
+              <div class="checkbox">
+                <label><input type="checkbox" value="">Mute</label>
+              </div>
+          </div>
+      </div>
+      
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-6">
+          <button type="button" (click) = addWebCam() class="btn btn-warning">add webcam</button>
+      </div>
+      <div class="col-md-6 checkbox-container">
+          <div class="checkbox">
+            <label><input type="checkbox" value="">Mute</label>
+          </div>
+      </div>
+    </div>
+     
+  </div>
+  
+  <!-- <div class="col-md-6">
+    <button type="button" (click) = start() class="btn btn-success">Start</button>
+    <button type="button" (click) = stop() class="btn btn-danger">Stop</button>
+  </div>
+
+  <div class="col-md-6">
+    <button type="button" (click) = createRoom() class="btn btn-danger">Create room</button>
+  </div>   -->
+</div>
+
+<div class="row">
+  <div class="col-md-12 form-group">
+    <label for="usr">Description:</label>
+    <input [(ngModel)]="description" type="text" class="form-control" id="usr">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="checkbox">
+        <label><input [(ngModel)]="recordRoom" type="checkbox" value="">Record</label>
+    </div>
+    <div class="checkbox">
+        <label><input [(ngModel)]="live" type="checkbox" value="">Live</label>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <p>videoroom: {{ room }}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <input class="btn {{ recording ? 'btn-danger' : 'btn-success'}}" type="button" value="{{ recording ? 'Stop' : 'Start'}}" (click) = start() />
+  </div>
+</div>
+</div>
+</div>
+</div>

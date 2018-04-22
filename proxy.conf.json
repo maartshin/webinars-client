@@ -1,0 +1,7 @@
+{
+  "/ws": {
+    "target": "wss://localhost:8080/socket",
+    "secure": true,
+    "ws": true
+  }
+}

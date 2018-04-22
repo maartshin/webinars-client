@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let room of rooms; let i = index">
+    <a href="#/view/{{room.id}}">{{ i+1 }} {{room.name}}</a>
+  </li>
+</ul>

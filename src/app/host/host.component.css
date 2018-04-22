@@ -1,0 +1,38 @@
+video{
+    border:1px solid black;
+}
+
+.input-small {
+    display: inline-block;
+    width:auto;
+}
+
+.checkbox-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.card.main{
+    padding:2em;
+}
+
+.screens .col-md-6{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.row.configuration .row{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.checkbox label{
+    display: flex;
+}
+
+.checkbox label input{
+    margin-right:0.5em;
+}
