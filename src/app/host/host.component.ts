@@ -33,7 +33,7 @@ export class HostComponent implements OnInit {
 	shareScreen(){
 		console.log(this.selectedSource);
 		let container = document.getElementById("screen");
-		this.webRtcService.getScreenInput(container, { video: { mediaSource: this.selectedSource }, audio:false }); 
+		this.webRtcService.getScreenInput(container, { video: { mediaSource: this.selectedSource }, audio:true }); 
 	}
 
 	start(){

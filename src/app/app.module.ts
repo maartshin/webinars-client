@@ -11,6 +11,12 @@ import { JanusService } from './services/janus.service';
 import { WebrtcService } from './services/webrtc.service';
 import { ViewComponent } from './view/view.component';
 import { ListComponent } from './list/list.component';
+import { PlayComponent } from './play/play.component';
+import { LoginComponent } from './login/login.component';
+import { UserService } from './services/user.service';
+import { HttpModule } from '@angular/http';
+import { RecordingsComponent } from './recordings/recordings.component';
+import { MediaService } from './services/media.service';
 
 
 @NgModule({
@@ -19,14 +25,18 @@ import { ListComponent } from './list/list.component';
     HostComponent,
     MenuComponent,
     ViewComponent,
-    ListComponent
+    ListComponent,
+    PlayComponent,
+    LoginComponent,
+    RecordingsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot( routes, {useHash: true})
   ],
-  providers: [ JanusService, WebrtcService ],
+  providers: [ JanusService, WebrtcService, UserService, MediaService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

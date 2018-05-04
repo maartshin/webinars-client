@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let recording of recordings; let i = index">
+    <a href="#/recordings/{{recording.videoroom}}">{{ i+1 }} {{recording.title}}</a>
+  </li>
+</ul>

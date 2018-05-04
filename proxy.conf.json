@@ -1,7 +1,8 @@
 {
-  "/ws": {
-    "target": "wss://localhost:8080/socket",
-    "secure": true,
-    "ws": true
+  "/api/*": {
+    "target": "https://localhost:8080",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }
