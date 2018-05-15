@@ -15,9 +15,7 @@ export class UserService {
 
 		return this.http
 			.post("/api/user/login", user)
-			.toPromise()
-			.then(result=> {console.log(result)})
-			.catch(err => {console.log(err)});
+			.toPromise();
 	}
 
 }

@@ -22,6 +22,10 @@ export class PlayComponent implements OnInit {
 				if(streams.length>1){
 					this.initVideoSyncronization();
 				}
+				else{
+					let first: any = document.getElementById("first");
+					first.load();
+				}
 			});
 		});
 	}

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { }
 
 @Injectable()
 export class JanusService {
@@ -66,7 +65,7 @@ export class JanusService {
 	}
 
 	public stopRecording(){
-		let req = { event: "stoprecording"};
+		let req = { event: "stopstreaming"};
 		this.ws.send(JSON.stringify(req));
 	}
 }

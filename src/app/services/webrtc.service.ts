@@ -12,7 +12,7 @@ export class WebrtcService {
 
 	getCamInput(container){
 		console.log("adding input");
-		let constraints = { audio : false, video : true };
+		let constraints = { audio : true, video : true };
 		navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
 			container.srcObject = stream;
 			this.streams["camera"] = {};

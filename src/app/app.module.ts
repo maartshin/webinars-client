@@ -17,6 +17,8 @@ import { UserService } from './services/user.service';
 import { HttpModule } from '@angular/http';
 import { RecordingsComponent } from './recordings/recordings.component';
 import { MediaService } from './services/media.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -36,7 +38,7 @@ import { MediaService } from './services/media.service';
     HttpModule,
     RouterModule.forRoot( routes, {useHash: true})
   ],
-  providers: [ JanusService, WebrtcService, UserService, MediaService ],
+  providers: [ JanusService, WebrtcService, UserService, MediaService, AuthGuardService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

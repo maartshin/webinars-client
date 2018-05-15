@@ -17,5 +17,9 @@ export class RecordingsComponent implements OnInit {
 			this.recordings = recordings;
 		});
 	}
+	
+	public isNoRecordings(){
+		return this.recordings.length < 1;
+	}
 
 }

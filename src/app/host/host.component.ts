@@ -11,7 +11,7 @@ import "webrtc-adapter";
 export class HostComponent implements OnInit {
 
 	private room;
-	private recording:boolean = false;
+	private streaming:boolean = false;
 	public selectedSource:string;
 	public sources = [{label: "screen", value: "screen"},  {label: "window", value: "window"}];
 	public live:boolean;
@@ -23,6 +23,7 @@ export class HostComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.webRtcService.streams = {};
 	}
 
 	addWebCam(){
@@ -36,16 +37,34 @@ export class HostComponent implements OnInit {
 		this.webRtcService.getScreenInput(container, { video: { mediaSource: this.selectedSource }, audio:true }); 
 	}
 
-	start(){
-		if(this.recording && this.recordRoom){
+
+	public triggerStreaming(){
+		if(!this.streaming){
+			this.start();
+			return;
+		}
+		this.stop();
+	}
+
+	private start(){
+		let streams = this.webRtcService.streams;
+		let streamCount = Object.keys(streams).length;
+		if(streamCount < 1){
+			console.log("No streams selected");
+			return;
+		}
+		this.createRoom().then(() => {
+			this.webRtcService.start(this.room, { record: this.recordRoom });
+			this.streaming = true;
+		});
+	}
+
+	private stop(){
+		this.streaming = false;
+		if(this.recordRoom){
 			this.janusService.stopRecording();
 			return;
 		}
-
-		this.createRoom().then(() => {
-			this.webRtcService.start(this.room, { record: this.recordRoom });
-			this.recording = true;
-		});
 	}
 
 

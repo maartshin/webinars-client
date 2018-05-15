@@ -16,7 +16,7 @@
   <div class="col-md-6">
       <div class="row">
           <div class="col-md-6">
-              <button type="button" (click) = shareScreen() class="btn btn-warning">add</button>
+              <button type="button" (click) = shareScreen() class="btn btn-default">add</button>
               <select class="form-control input-small" [(ngModel)]="selectedSource">
                 <option *ngFor="let source of sources; let i = index" value="{{source.value}}">{{source.label}}</option>
               </select>
@@ -32,7 +32,7 @@
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-6">
-          <button type="button" (click) = addWebCam() class="btn btn-warning">add webcam</button>
+          <button type="button" (click) = addWebCam() class="btn btn-default">add webcam</button>
       </div>
       <div class="col-md-6 checkbox-container">
           <div class="checkbox">
@@ -43,14 +43,6 @@
      
   </div>
   
-  <!-- <div class="col-md-6">
-    <button type="button" (click) = start() class="btn btn-success">Start</button>
-    <button type="button" (click) = stop() class="btn btn-danger">Stop</button>
-  </div>
-
-  <div class="col-md-6">
-    <button type="button" (click) = createRoom() class="btn btn-danger">Create room</button>
-  </div>   -->
 </div>
 
 <div class="row">
@@ -79,7 +71,7 @@
 
 <div class="row">
   <div class="col-md-6">
-    <input class="btn {{ recording ? 'btn-danger' : 'btn-success'}}" type="button" value="{{ recording ? 'Stop' : 'Start'}}" (click) = start() />
+    <input class="btn {{ streaming ? 'btn-danger' : 'btn-success'}}" type="button" value="{{ streaming ? 'Stop' : 'Start'}}" (click) = triggerStreaming() />
   </div>
 </div>
 </div>

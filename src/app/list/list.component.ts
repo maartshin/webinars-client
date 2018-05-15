@@ -8,7 +8,7 @@ import { JanusService } from '../services/janus.service';
 })
 export class ListComponent implements OnInit {
 
-	rooms = [{id:1, name:"name"}]
+	rooms = []
 
 	constructor(private janusService: JanusService) {
 		this.initEvents();
@@ -25,12 +25,15 @@ export class ListComponent implements OnInit {
 			try{
 				data = JSON.parse(message.data);
 			}catch(e){
-				//ws.send(JSON.stringify({ error: "Not a json object." }));
 				console.log("Not a json object");
 				return;
 			}
 			this.invokeEvent(data);
 		}
+	}
+
+	public isNoRooms(){
+		return this.rooms.length < 1;
 	}
 
 	private invokeEvent(data){
@@ -48,11 +51,10 @@ export class ListComponent implements OnInit {
 		this.rooms = data.rooms.list.map(room =>{
 			return {id:room.room, name:room.description}
 		});
-		console.log(data);
 	}
 
 	private getRooms(){
-		setTimeout(() => { this.janusService.getRooms() }, 1000);
+		setTimeout(() => { this.janusService.getRooms() }, 100);
 	}
 
 }

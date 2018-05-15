@@ -1,5 +1,6 @@
-<ul>
-  <li *ngFor="let room of rooms; let i = index">
+<p *ngIf="isNoRooms()">There are no livestreams.</p>
+<ul class="list-group">
+  <li *ngFor="let room of rooms; let i = index" class="list-group-item">
     <a href="#/view/{{room.id}}">{{ i+1 }} {{room.name}}</a>
   </li>
 </ul>

@@ -1,5 +1,6 @@
-<ul>
-  <li *ngFor="let recording of recordings; let i = index">
+<p *ngIf="isNoRecordings()">There are no recordings.</p>
+<ul class="list-group">
+  <li *ngFor="let recording of recordings; let i = index" class="list-group-item">
     <a href="#/recordings/{{recording.videoroom}}">{{ i+1 }} {{recording.title}}</a>
   </li>
 </ul>

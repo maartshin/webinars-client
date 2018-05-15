@@ -1,7 +1,12 @@
-<video id="second">
-  <source src="/api/stream/{{ streams[1] }}" type="video/webm">
-</video>
-
-<video id="first" controls>
-  <source src="/api/stream/{{ streams[0] }}" type="video/webm">
-</video>
+<div class="row">
+  <div class="col-3">
+    <video id="second">
+      <source src="/api/stream/{{ streams[1] }}" type="video/webm">
+    </video>
+  </div>
+</div>
+<div class="row">
+  <video id="first" controls>
+    <source src="/api/stream/{{ streams[0] }}" type="video/webm">
+  </video>
+</div>
