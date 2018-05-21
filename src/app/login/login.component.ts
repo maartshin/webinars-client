@@ -19,6 +19,9 @@ export class LoginComponent implements OnInit {
 
 	login(){
 		this.userService.login(this.email, this.password).then(res => {
+			let token = res.json()["token"];
+			console.log(token);
+			localStorage.setItem("token", token);
 			this.route.navigate(["host"]);
 		});
 	}

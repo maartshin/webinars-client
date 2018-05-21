@@ -3,8 +3,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class JanusService {
 
-	private socket:string = "wss://localhost:8080/socket"; 
+	private socket:string = this.createSocketAddress(); 
 	private ws: WebSocket;
+
+	private createSocketAddress(){
+		let host = location.hostname;
+		let port = "8080";
+		let url = "wss://" + host + ":" + port + "/socket";
+		console.log(url);
+		return url;
+	}
 
 	public getSocket():WebSocket{
 		return this.ws;
@@ -15,7 +23,11 @@ export class JanusService {
 	}
 
 	private initSocket(){
-		this.ws = new WebSocket(this.socket);
+		this.ws = new WebSocket(this.socket, this.getToken());
+	}
+
+	private getToken(){
+		return localStorage.getItem("token");
 	}
   
 	public connectToJanus(){

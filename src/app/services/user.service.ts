@@ -13,9 +13,16 @@ export class UserService {
 			password: password
 		};
 
-		return this.http
-			.post("/api/user/login", user)
-			.toPromise();
+		return this.http.post("/api/user/login", user).toPromise();
+	}
+
+	public register(data): Promise<any>{
+		return this.http.post("/api/user/register", data).toPromise();
+	}
+
+	public logOut(){
+		console.log("Logging out");
+		localStorage.removeItem("token");
 	}
 
 }

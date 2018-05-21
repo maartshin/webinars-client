@@ -19,6 +19,7 @@ import { RecordingsComponent } from './recordings/recordings.component';
 import { MediaService } from './services/media.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { AuthGuardService } from './services/auth-guard.service';
     ListComponent,
     PlayComponent,
     LoginComponent,
-    RecordingsComponent
+    RecordingsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
