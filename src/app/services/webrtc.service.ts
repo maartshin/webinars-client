@@ -6,6 +6,13 @@ import { JanusService } from './janus.service';
 export class WebrtcService {
 
 	streams = {};
+	private readonly stunServers: RTCIceServer[] = [
+		{urls : "stun:stun.l.google.com:19302"},
+		{urls : "stun:stun1.l.google.com:19302"},
+		{urls : "stun:stun2.l.google.com:19302"},
+		{urls : "stun:stun3.l.google.com:19302"},
+		{urls : "stun:stun4.l.google.com:19302"}
+	];
 
 	constructor(private janusService: JanusService) {
 	}
@@ -39,7 +46,7 @@ export class WebrtcService {
 	createStream(stream, room, options){
 		console.log("creating stream: "+stream);
 
-		let pc:any = new RTCPeerConnection({});
+		let pc:any = new RTCPeerConnection({ iceServers: this.stunServers });
 		pc.addStream(this.streams[stream]["stream"]);
 		this.streams[stream]["pc"] = pc;
 
@@ -63,7 +70,7 @@ export class WebrtcService {
 	}
 
 	listen(data, videoBox){
-		let pc:any = new RTCPeerConnection({});
+		let pc:any = new RTCPeerConnection({ iceServers: this.stunServers });
 		pc.setRemoteDescription(new RTCSessionDescription(data.sdp));
 		pc.createAnswer().then((sessionDescription) => {
 			pc.setLocalDescription(sessionDescription);
